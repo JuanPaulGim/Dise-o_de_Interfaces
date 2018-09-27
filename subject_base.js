@@ -27,14 +27,14 @@ function insertUser(){
 		'city' : city
 	};
 
-	$.ajax({
-		type: 'POST',
+	/*$.ajax({
+	 	type: 'POST',
     	url: 'backend.php',
     	data: dataEn,
     	success:function(resp){
     		$('#res').html(resp)
     	}
-	});
+	});*/
 }
 
 function suscribeUser(){
