@@ -23,7 +23,7 @@ require_once './conexion_bd.php';
 			echo "No estas registrado, por favor registrate antes de realizar una suscripción";
 			return false;
 		}else{
-			echo "Hola <b>".$valores['nombre']."</b> ya te encuentras registrado";
+			echo "Hola <b>".$valores['nombre']."</b> ya te encuentras registrado <br/>";
 			return true;
 		}
 	}
@@ -48,9 +48,14 @@ require_once './conexion_bd.php';
 			$one = $obj['ident'];
 			if($this->getUser($mysqli,$one)){
 				$two = $obj['rev'];
-				$sql = "INSERT INTO suscriptores (id_usuario,id_revista) VALUES ('$one','$two');";
-				mysqli_query($mysqli,$sql);
-				echo "Usted se ha suscrito con exito!";
+				$verify = "SELECT id_usuario, id_revista FROM suscriptores WHERE id_usuario =".$one." and id_revista= ".$two."";
+				if ($verify == null){
+					$sql = "INSERT INTO suscriptores (id_usuario,id_revista) VALUES ('$one','$two');";
+					mysqli_query($mysqli,$sql);
+					echo "Usted se ha suscrito con exito!";
+				}else{
+					echo "Ya se encuentra suscrito a esta revista.";
+				}
 			}
 		}
 	}
