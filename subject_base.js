@@ -26,15 +26,14 @@ function insertUser(){
 		'age' : age,
 		'city' : city
 	};
-
-	/*$.ajax({
+	$.ajax({
 	 	type: 'POST',
     	url: 'backend.php',
     	data: dataEn,
     	success:function(resp){
     		$('#res').html(resp)
     	}
-	});*/
+	});
 }
 
 function suscribeUser(){
@@ -44,4 +43,12 @@ function suscribeUser(){
 		'ident' : ident,
 		'rev' : rev
 	};
+	$.ajax({
+	 	type: 'POST',
+    	url: 'backend.php',
+    	data: dataEn,
+    	success:function(resp){
+    		$('#res').html(resp)
+    	}
+	});
 }
